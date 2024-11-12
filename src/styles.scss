@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.snack-success {
+    color: #F3F6F9;
+    --mdc-snackbar-container-color: #21AA91;
+    ;
+
+    .mat-simple-snackbar-action {
+        color: #F3F6F9;
+        background-color: black;
+    }
+}
+
+.snack-error {
+    color: #F3F6F9;
+    --mdc-snackbar-container-color: #DC0714;
+    ;
+
+    .mat-simple-snackbar-action {
+        color: #F3F6F9;
+        background-color: black;
+    }
+}
+
+.snack-warning {
+    color: #F3F6F9;
+    --mdc-snackbar-container-color: #dc7907;
+    ;
+
+    .mat-simple-snackbar-action {
+        color: #F3F6F9;
+        background-color: black;
+    }
+}
+
+.mt-20 {
+    margin-top: 20px;
+}

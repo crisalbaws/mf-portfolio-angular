@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { ExamplesComponent } from './layout/examples/examples.component';
+import { TodoListComponent } from './layout/todo-list/todo-list.component';
+import { CurriculumComponent } from './layout/curriculum/curriculum.component';
 
 export const routes: Routes = [
-    // {
-    //     path: 'angular',
-    //     redirectTo: 'angular/examples',
-    //     pathMatch: 'full'
-    // },
     {
-        path:'angular/examples',
-        component: ExamplesComponent
+        path:'angular/curriculum',
+        component: CurriculumComponent
+    },
+    {
+        path:'angular/to-do',
+        component: TodoListComponent
     }
 ];

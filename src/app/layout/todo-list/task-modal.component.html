@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>{{!data.id ? 'Agregar Tarea' : ((data && data.readonly) ? 'Detalle' : 'Editar')}}
+</h2>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <div class="row">
+      <mat-form-field [ngClass]="{'readonly-select': data.readonly}" appearance="outline" class="w-100 mr-10">
+        <mat-label>Responsable</mat-label>
+        <mat-select formControlName="responsable" required>
+          <mat-option *ngFor="let resp of responsables" [value]="resp">{{ resp }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Nombre de la Tarea</mat-label>
+        <input matInput [readonly]="data.readonly" formControlName="nombreTarea"
+          placeholder="Ej. Desarrollar nueva funcionalidad" required />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field [ngClass]="{'readonly-select': data.readonly}" appearance="outline" class="w-100 mr-10">
+        <mat-label>Prioridad</mat-label>
+        <mat-select formControlName="prioridad" required>
+          <mat-option value="Alta">Alta</mat-option>
+          <mat-option value="Media">Media</mat-option>
+          <mat-option value="Baja">Baja</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100 mr-10">
+        <mat-label>Fecha de Entrega</mat-label>
+        <input matInput [readonly]="data.readonly" [matDatepicker]="picker" formControlName="fechaEntrega" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Área</mat-label>
+        <input matInput [readonly]="data.readonly" formControlName="area" placeholder="Ej. Desarrollo, Marketing"
+          required />
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Descripción</mat-label>
+      <textarea [readonly]="data.readonly" matInput formControlName="descripcion" rows="4"
+        placeholder="Describe la tarea" required></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-flat-button type="button" color="warn" mat-dialog-close>Cancelar</button>
+    <button *ngIf="!data.readonly" mat-flat-button color="primary" type="submit"
+      [disabled]="taskForm.invalid">Agregar</button>
+  </mat-dialog-actions>
+</form>

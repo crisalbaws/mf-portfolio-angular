@@ -1,0 +1,133 @@
+<div class="board-container">
+    <mat-toolbar class="toolbar">
+        <span>Tareas</span>
+        <div>
+            <mat-form-field class="mr-20 mt-13" appearance="outline">
+                <mat-select (selectionChange)="changeSelection($event)" placeholder="Filtrar por...">
+                    <mat-option *ngFor="let filter of filters" [value]="filter">{{ filter }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-flat-button color="primary" (click)="openAddTaskDialog()">Agregar tarea</button>
+        </div>
+    </mat-toolbar>
+
+    <div class="columns-header">
+        <h2>Por hacer</h2>
+        <h2>En proceso</h2>
+        <h2>Terminado</h2>
+    </div>
+
+    <div class="columns-container" cdkDropListGroup>
+        <div class="task-column">
+            <div cdkDropList [cdkDropListData]="tasksTodo" class="task-list" (cdkDropListDropped)="drop($event)">
+                <div *ngFor="let task of tasksTodo" cdkDrag class="task-item">
+                    <div class="task-header">
+                        <div class="task-responsible">
+                            <div class="avatar">{{ task.responsable.substring(0, 2).toUpperCase() }}</div>
+                            <span class="responsable-name">{{ task.responsable }}</span>
+                        </div>
+                        <span class="area">{{ task.area }}</span>
+                    </div>
+
+                    <div class="task-name">{{ task.nombreTarea }}</div>
+
+                    <div class="task-description">
+                        {{ task.descripcion }}
+                    </div>
+
+                    <div class="task-footer">
+                        <div class="task-priority" [ngStyle]="{ 'background-color': getPriorityColor(task.prioridad) }">
+                            {{ task.prioridad }}
+                        </div>
+                        <span class="due-date">{{ task.fechaEntrega | date:'shortDate' }}</span>
+                    </div>
+                    <div class="task-actions">
+                        <button mat-icon-button (click)="deleteTask(task, 'todo')" matTooltip="Eliminar"
+                            class="delete-btn">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button (click)="openAddTaskDialog(task)" mat-icon-button matTooltip="Editar">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button (click)="openAddTaskDialog(task, true)" mat-icon-button matTooltip="Detalles">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="task-column">
+            <div cdkDropList [cdkDropListData]="tasksInProgress" class="task-list" (cdkDropListDropped)="drop($event)">
+                <div *ngFor="let task of tasksInProgress" cdkDrag class="task-item">
+                    <div class="task-header">
+                        <div class="task-responsible">
+                            <div class="avatar">{{ task.responsable.substring(0, 2).toUpperCase() }}</div>
+                            <span class="responsable-name">{{ task.responsable }}</span>
+                        </div>
+                        <span class="area">{{ task.area }}</span>
+                    </div>
+
+                    <div class="task-name">{{ task.nombreTarea }}</div>
+
+                    <div class="task-description">
+                        {{ task.descripcion }}
+                    </div>
+
+                    <div class="task-footer">
+                        <div class="task-priority" [ngStyle]="{ 'background-color': getPriorityColor(task.prioridad) }">
+                            {{ task.prioridad }}
+                        </div>
+                        <span class="due-date">{{ task.fechaEntrega | date:'shortDate' }}</span>
+                    </div>
+                    <div class="task-actions">
+                        <button mat-icon-button (click)="deleteTask(task, 'inprogress')" matTooltip="Eliminar"
+                            class="delete-btn">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button (click)="openAddTaskDialog(task)" mat-icon-button matTooltip="Editar">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button (click)="openAddTaskDialog(task, true)" mat-icon-button matTooltip="Detalles">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="task-column">
+            <div cdkDropList [cdkDropListData]="tasksDone" class="task-list" (cdkDropListDropped)="drop($event)">
+                <div [cdkDragDisabled]="true" *ngFor="let task of tasksDone" cdkDrag class="task-item">
+                    <div class="task-header">
+                        <div class="task-responsible">
+                            <div class="avatar">{{ task.responsable.substring(0, 2).toUpperCase() }}</div>
+                            <span class="responsable-name">{{ task.responsable }}</span>
+                        </div>
+                        <span class="area">{{ task.area }}</span>
+                    </div>
+
+                    <div class="task-name">{{ task.nombreTarea }}</div>
+
+                    <div class="task-description">
+                        {{ task.descripcion }}
+                    </div>
+
+                    <div class="task-footer">
+                        <div class="task-priority" [ngStyle]="{ 'background-color': getPriorityColor(task.prioridad) }">
+                            {{ task.prioridad }}
+                        </div>
+                        <span class="due-date">{{ task.fechaEntrega | date:'shortDate' }}</span>
+                    </div>
+                    <div class="task-actions">
+                        <button (click)="openAddTaskDialog(task, true)" mat-icon-button matTooltip="Detalles">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
