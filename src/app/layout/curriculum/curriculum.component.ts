@@ -10,7 +10,7 @@ import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-curriculum',
   standalone: true,
-  imports: [MatDividerModule, MatChipsModule, MatIconModule, MatTooltipModule, MatCardModule, MatCard, RouterModule],
+  imports: [MatDividerModule, MatChipsModule, MatIconModule, MatTooltipModule, MatCardModule, RouterModule],
   templateUrl: './curriculum.component.html',
   styleUrl: './curriculum.component.scss'
 })

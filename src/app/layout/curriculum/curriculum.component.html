@@ -4,7 +4,7 @@
         <div class="hero-content">
             <img src="https://portfolio-caaws-public.s3.us-east-1.amazonaws.com/images/porfolio/ca-clear.png"
                 alt="Foto de perfil" width="250" class="profile-image">
-            <h1>Desarrollador Frontend Senior</h1>
+            <h1 class="title">Desarrollador Frontend Senior</h1>
             <p>
                 Con más de 4 años de experiencia desarrollando aplicaciones web de alta calidad. He trabajado en la
                 creación y actualización de sistemas utilizando frameworks como Angular, React e Ionic, y tecnologías
@@ -29,24 +29,24 @@
                 <h3>Grupo Armstrong</h3>
                 <h4>Desarrollador Frontend Senior</h4>
                 <p>
-                    Más de 4 años de experiencia como desarrollador frontend, actualmente en un puesto Senior en Grupo
-                    Armstrong.
-                    Especializado en tecnologías modernas como Angular, React, y Ionic, creando sistemas de alto
-                    rendimiento y
-                    escalabilidad. Mi enfoque abarca desde el diseño de arquitecturas con microfrontends hasta la
-                    implementación
-                    de aplicaciones completas, tanto web como móviles.
+                    Más de 3 años y medio de experiencia como desarrollador frontend, actualmente en un puesto Senior en
+                    Grupo Armstrong. Especializado en tecnologías modernas como Angular, React, y Ionic, creando
+                    sistemas de alto rendimiento y escalabilidad. Mi enfoque abarca desde el diseño de arquitecturas con
+                    microfrontends (Single SPA), donde he realizado una integración de Angular y React, hasta la
+                    implementación de aplicaciones completas, tanto web como móviles. Además, he desarrollado APIs con
+                    NestJS, comunicándome con bases de datos SQL Server y MySQL. También he diseñado y creado
+                    aplicaciones web progresivas (PWA) y he dado soporte a una aplicación desarrollada en Kotlin.
                 </p>
             </div>
             <div class="experience-card">
                 <h3>BeePart Consulting</h3>
                 <h4>Freelancer en Desarrollo Web</h4>
                 <p>
-                    2 años trabajando como desarrollador web freelance para BeePart Consulting. Me enfoqué en la
+                    1 años trabajando como desarrollador web freelance para BeePart Consulting. Me enfoqué en la
                     creación de
                     sitios web personalizados para clientes de diversas industrias, integrando tecnologías modernas como
-                    Angular,
-                    React, y aplicando principios de diseño UX/UI para mejorar la experiencia de usuario.
+                    Angular, y patrones de diseño como redux, aplicando principios de diseño UX/UI para mejorar la
+                    experiencia de usuario.
                 </p>
             </div>
             <div class="experience-card">
@@ -75,6 +75,33 @@
         </div>
     </section>
 
+    <!-- Educaction Section -->
+    <section class="education-section mat-elevation-z4">
+        <h2>Educación</h2>
+        <mat-divider></mat-divider>
+        <div class="experience-cards">
+            <div class="education-card">
+                <h3>CUCEI - 2017-2021</h3>
+                <h4>Ingeniería en Comunicaciones y Electrónica</h4>
+                <p>
+                    Graduado en Ingeniería en Comunicaciones y Electrónica por el CUCEI, donde adquirí conocimientos
+                    sólidos en sistemas de comunicación, electrónica, y programación. Este programa me brindó las bases
+                    para desarrollar soluciones tecnológicas aplicadas tanto en hardware como en software.
+                </p>
+            </div>
+
+            <div class="education-card">
+                <h3>UDG - Prepa 11</h3>
+                <h4>Preparatoria - 2008-2015</h4>
+                <p>
+                    Formación académica en la Preparatoria 11 de la Universidad de Guadalajara, donde cursé el
+                    bachillerato general por competencias, lo cual sentó las bases para mi posterior carrera en
+                    ingeniería.
+                </p>
+            </div>
+
+        </div>
+    </section>
 
     <!-- Skills Section -->
     <section class="skills-container mat-elevation-z4">
@@ -104,6 +131,11 @@
                     <mat-chip class="chipCustom" selected>React</mat-chip>
                     <mat-chip class="chipCustom" selected>NestJS</mat-chip>
                     <mat-chip class="chipCustom" selected>NextJS</mat-chip>
+                </div>
+                <h3>Idiomas</h3>
+                <div class="skills-list">
+                    <mat-chip class="chipCustom" selected>Inglés básico</mat-chip>
+                    <mat-chip class="chipCustom" selected>Español nativo</mat-chip>
                 </div>
             </div>
 
@@ -140,7 +172,7 @@
             en conjunto. Este proyecto incluye acceso al repositorio y ejemplos simples que cubren una variedad de casos
             de uso.
         </p>
-        <button (click)="openGitHub()" mat-raised-button class="button mb-10">Ver Repositorios</button>
+        <button (click)="openGitHub()" mat-raised-button class="button mb-15">Ver Repositorios</button>
         <p>
             También puedes ver algunos ejemplos de proyectos demo:
         </p>
@@ -156,13 +188,24 @@
             Si estás interesado en colaborar o discutir sobre posibles proyectos, no dudes en contactarme.
         </p>
 
-        <button mat-icon-button matTooltip="Enviar mensaje por WhatsApp" class="mr-10" (click)="whatsapp()">
-            <mat-icon>phone_android</mat-icon>
-        </button>
+        <div class="contact-info">
+            <div class="linkedin-badge">
+                <div class="badge-base LI-profile-badge" data-locale="es_ES" data-size="medium" data-theme="dark"
+                    data-type="VERTICAL" data-vanity="cristhian-jonathan-del-castillo-alba-2830071a4" data-version="v1">
+                </div>
+            </div>
 
-        <button mat-icon-button matTooltip="Enviar correo electrónico" (click)="sendEmail()">
-            <mat-icon>email</mat-icon>
-        </button>
+            <div class="contact-buttons">
+                <button mat-icon-button matTooltip="Enviar mensaje por WhatsApp" class="mr-10" (click)="whatsapp()">
+                    <mat-icon>phone_android</mat-icon>
+                </button>
+
+                <button mat-icon-button matTooltip="Enviar correo electrónico" (click)="sendEmail()">
+                    <mat-icon>email</mat-icon>
+                </button>
+            </div>
+        </div>
     </section>
+
 
 </div>
