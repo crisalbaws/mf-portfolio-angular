@@ -1,27 +1,87 @@
 <div class="landing-page">
-    <!-- Hero Section -->
-    <section class="hero-section mat-elevation-z8">
-        <div class="hero-content">
-            <img src="https://portfolio-caaws-public.s3.us-east-1.amazonaws.com/images/porfolio/ca-clear.png"
-                alt="Foto de perfil" width="250" class="profile-image">
-            <h1 class="title">Desarrollador Frontend Senior</h1>
-            <p>
-                Con más de 4 años de experiencia desarrollando aplicaciones web de alta calidad. He trabajado en la
-                creación y actualización de sistemas utilizando frameworks como Angular, React e Ionic, y tecnologías
-                avanzadas
-                como Single SPA para microfrontends, PWAs, y despliegues en plataformas como Play Store y App Store.
-            </p>
-            <button mat-raised-button class="btn-main">
-                <a href="https://portfolio-caaws-public.s3.us-east-1.amazonaws.com/documents/porfolio/cv.pdf"
-                    download="CV-Cristhian-Del-Castillo.pdf" class="cv">
-                    Descargar CV
-                </a>
-            </button>
+    <section class="principal-section mat-elevation-z8">
+        <div class="principal-container">
+            <div class="principal-text">
+                <div class="principal-tag">
+                    <span (click)="whatsapp()" class="tag-item">WhatsApp</span>
+                    <span class="tag-divider">|</span>
+                    <span (click)="sendEmail()" class="tag-item">Correo</span>
+                </div>
+
+                <h1 class="principal-title">Cristhian Del Castillo</h1>
+
+                <h2 class="principal-subtitle">Senior Frontend Developer</h2>
+
+                <p class="principal-description">
+                    Desarrollador Frontend Senior con más de 4 años de experiencia en la creación de aplicaciones web y
+                    móviles escalables. Especializado en Angular, React y arquitecturas modernas como microfrontends
+                    (Single SPA), PWAs y despliegues en entornos multiplataforma (iOS, Android, Web).
+                </p>
+
+                <div class="buttons">
+                    <button mat-raised-button class="principal-button" (click)="openCV()">
+                        Descargar CV
+                        <mat-icon>arrow_forward</mat-icon>
+                    </button>
+
+                    <button mat-raised-button class="principal-button" routerLink="/angular/to-do">
+                        Demos
+                        <mat-icon>arrow_forward</mat-icon>
+                    </button>
+
+                    <button mat-raised-button class="principal-button" routerLink="/angular/to-do">
+                        Repositorios
+                        <mat-icon>arrow_forward</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="principal-image">
+                <img src="https://portfolio-caaws-public.s3.us-east-1.amazonaws.com/images/porfolio/ca-clear.png"
+                    alt="Perfil Frontend Developer" class="profile-image">
+            </div>
+        </div>
+
+        <div class="cards-container">
+            <div class="card">
+                <mat-icon class="card-icon">code</mat-icon>
+                <h3 class="card-title">Lenguajes</h3>
+                <mat-chip removable class="chipCustom" selected>TypeScript</mat-chip>
+                <mat-chip class="chipCustom" selected>HTML</mat-chip>
+                <mat-chip class="chipCustom" selected>CSS</mat-chip>
+                <mat-chip class="chipCustom" selected>SCSS</mat-chip>
+                <mat-chip class="chipCustom" selected>JavaScript</mat-chip>
+                <mat-chip class="chipCustom" selected>C#</mat-chip>
+            </div>
+
+            <div class="card">
+                <mat-icon class="card-icon">devices</mat-icon>
+                <h3 class="card-title">Frameworks</h3>
+                <mat-chip class="chipCustom" selected>Angular</mat-chip>
+                <mat-chip class="chipCustom" selected>Ionic</mat-chip>
+                <mat-chip class="chipCustom" selected>React</mat-chip>
+                <mat-chip class="chipCustom" selected>NestJS</mat-chip>
+            </div>
+
+            <div class="card">
+                <mat-icon class="card-icon">bolt</mat-icon>
+                <h3 class="card-title">Herramientas y Servicios</h3>
+                <mat-chip class="chipCustom" selected>AWS S3</mat-chip>
+                <mat-chip class="chipCustom" selected>GitHub</mat-chip>
+                <mat-chip class="chipCustom" selected>Jira</mat-chip>
+                <mat-chip class="chipCustom" selected>GitKraken</mat-chip>
+                <mat-chip class="chipCustom" selected>GitHub Desktop</mat-chip>
+                <mat-chip class="chipCustom" selected>Figma</mat-chip>
+                <mat-chip class="chipCustom" selected>AWS Pipeline</mat-chip>
+                <mat-chip class="chipCustom" selected>Socket.io</mat-chip>
+                <mat-chip class="chipCustom" selected>Supabase</mat-chip>
+                <mat-chip class="chipCustom" selected>Keyclaok</mat-chip>
+
+            </div>
         </div>
     </section>
-
-    <!-- Experience Section -->
-    <section class="experience-section mat-elevation-z4">
+</div>
+<!-- <section class="experience-section mat-elevation-z4">
         <h2>Experiencia Laboral</h2>
         <mat-divider></mat-divider>
         <div class="experience-cards">
@@ -75,7 +135,6 @@
         </div>
     </section>
 
-    <!-- Educaction Section -->
     <section class="education-section mat-elevation-z4">
         <h2>Educación</h2>
         <mat-divider></mat-divider>
@@ -103,12 +162,10 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section class="skills-container mat-elevation-z4">
         <h2>Habilidades</h2>
 
         <div class="row">
-            <!-- Lenguajes -->
             <div class="skills-category">
                 <h3>Lenguajes</h3>
                 <div class="skills-list">
@@ -122,7 +179,6 @@
                 </div>
             </div>
 
-            <!-- Frameworks -->
             <div class="skills-category">
                 <h3>Frameworks</h3>
                 <div class="skills-list">
@@ -139,7 +195,6 @@
                 </div>
             </div>
 
-            <!-- Herramientas y Servicios -->
             <div class="skills-category">
                 <h3>Herramientas y Servicios</h3>
                 <div class="skills-list">
@@ -156,9 +211,6 @@
         </div>
     </section>
 
-
-
-    <!-- Projects Section -->
     <section class="projects-section mat-elevation-z4">
         <h2>Proyectos</h2>
         <mat-divider></mat-divider>
@@ -179,8 +231,6 @@
         <button routerLink="/angular/to-do" class="button mt-20">Ver Proyectos Demo</button>
     </section>
 
-    <!-- Contact Section -->
-    <!-- Contact Section -->
     <section class="contact-section mat-elevation-z4">
         <mat-divider></mat-divider>
         <h2>Contacto</h2>
@@ -205,7 +255,4 @@
                 </button>
             </div>
         </div>
-    </section>
-
-
-</div>
+    </section> -->
