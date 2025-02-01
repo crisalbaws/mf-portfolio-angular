@@ -2,7 +2,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
@@ -14,6 +14,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { v4 as uuidv4 } from 'uuid';
+import { map, Observable } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 interface Task {
   text: string;
@@ -39,7 +41,7 @@ interface Task {
     MatTooltipModule,
     MatIconModule,
     MatSnackBarModule,
-  ]
+  ],
 })
 export class TodoListComponent {
 
@@ -52,7 +54,24 @@ export class TodoListComponent {
   tasksInProgressMemory: any = [];
   tasksDoneMemory: any = [];
   tasksTodoMemory: any = [...this.tasksTodo];
-  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) { }
+
+  isSmallScreen$: Observable<boolean>;
+  isMediumScreen$: Observable<boolean>;
+  isLargeScreen$: Observable<boolean>;
+
+
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar, private breakpointObserver: BreakpointObserver) {
+
+    this.isSmallScreen$ = this.breakpointObserver.observe([Breakpoints.XSmall])
+      .pipe(map(result => result.matches));
+
+    this.isMediumScreen$ = this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium])
+      .pipe(map(result => result.matches));
+
+    this.isLargeScreen$ = this.breakpointObserver.observe([Breakpoints.Large])
+      .pipe(map(result => result.matches));
+
+  }
 
   drop(event: CdkDragDrop<any[]>) {
     console.log('Drop event triggered:', event);

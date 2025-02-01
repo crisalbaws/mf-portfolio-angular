@@ -1,8 +1,8 @@
 <h2 mat-dialog-title>{{!data.id ? 'Agregar Tarea' : ((data && data.readonly) ? 'Detalle' : 'Editar')}}
 </h2>
 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-  <mat-dialog-content>
-    <div class="row">
+  <mat-dialog-content class="columnForm">
+    <div class="row columnForm">
       <mat-form-field [ngClass]="{'readonly-select': data.readonly}" appearance="outline" class="w-100 mr-10">
         <mat-label>Responsable</mat-label>
         <mat-select formControlName="responsable" required>
@@ -16,7 +16,7 @@
           placeholder="Ej. Desarrollar nueva funcionalidad" required />
       </mat-form-field>
     </div>
-    <div class="row">
+    <div class="row columnForm">
       <mat-form-field [ngClass]="{'readonly-select': data.readonly}" appearance="outline" class="w-100 mr-10">
         <mat-label>Prioridad</mat-label>
         <mat-select formControlName="prioridad" required>

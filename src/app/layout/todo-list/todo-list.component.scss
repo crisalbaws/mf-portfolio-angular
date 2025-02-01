@@ -11,16 +11,21 @@
 
 .toolbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     width: 100%;
     margin-bottom: 15px;
     border-radius: 10px;
-    box-shadow: 0px 0px 3px 3px #c4c4c42e;
     padding-top: 5px;
-    color: lightslategrey;
+    background: transparent;
+    align-items: center;
+}
+
+.cursor {
+    cursor: pointer;
 }
 
 .columns-header {
+    margin-top: -30px;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -75,7 +80,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 0px 0px 3px 3px rgb(103 103 103 / 29%);
+    box-shadow: 0px 0px 3px 3px rgba(103, 103, 103, 0.059);
 }
 
 .task-header {
@@ -168,4 +173,43 @@
 
 .mt-13 {
     margin-top: 13px;
+}
+
+.mb-10 {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .toolbar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: -23px;
+    }
+
+    .board-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc(100vw - 5rem);
+        overflow: auto;
+        box-sizing: border-box;
+        margin-top: 1rem;
+        height: calc(100vh - 11rem);
+    }
+
+    .columns-header h2 {
+        width: 100%;
+        align-items: start;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        margin-top: 45px;
+    }
+
+    .columnForm {
+        display: flex;
+        flex-direction: column;
+    }
 }
