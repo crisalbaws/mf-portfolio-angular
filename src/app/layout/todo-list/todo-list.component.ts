@@ -56,19 +56,15 @@ export class TodoListComponent {
   tasksTodoMemory: any = [...this.tasksTodo];
 
   isSmallScreen$: Observable<boolean>;
-  isMediumScreen$: Observable<boolean>;
   isLargeScreen$: Observable<boolean>;
 
 
   constructor(private dialog: MatDialog, private snackBar: MatSnackBar, private breakpointObserver: BreakpointObserver) {
 
-    this.isSmallScreen$ = this.breakpointObserver.observe([Breakpoints.XSmall])
+    this.isSmallScreen$ = this.breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small])
       .pipe(map(result => result.matches));
 
-    this.isMediumScreen$ = this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium])
-      .pipe(map(result => result.matches));
-
-    this.isLargeScreen$ = this.breakpointObserver.observe([Breakpoints.Large])
+    this.isLargeScreen$ = this.breakpointObserver.observe([Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
       .pipe(map(result => result.matches));
 
   }
