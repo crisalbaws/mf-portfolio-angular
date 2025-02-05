@@ -25,7 +25,6 @@
 }
 
 .columns-header {
-    margin-top: -30px;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -199,15 +198,19 @@
         height: calc(100vh - 11rem);
     }
 
+    .columns-header {
+        height: 50px;
+    }
+
     .columns-header h2 {
         width: 100%;
         align-items: start;
         display: flex;
         flex-direction: row;
         justify-content: start;
-        margin-top: 45px;
+        margin-top: 12px;
     }
-
+    
     .columnForm {
         display: flex;
         flex-direction: column;
